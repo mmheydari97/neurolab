@@ -178,7 +178,7 @@ def newlvq(minmax, cn0, pc):
     layer_out.initf = None
     layer_out.np['b'].fill(0.0)
     layer_out.np['w'].fill(0.0)
-    inx = np.floor(cn0 * pc.cumsum())
+    inx = np.floor(cn0 * pc.cumsum()).astype(int)
     for n, i in enumerate(inx):
         st = 0 if n == 0 else inx[n - 1]
         layer_out.np['w'][n][int(st):int(i)].fill(1.0)
